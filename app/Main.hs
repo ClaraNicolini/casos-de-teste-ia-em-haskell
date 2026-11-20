@@ -1,19 +1,12 @@
 module Main where
 
-import Cpf.Validador (limparCpf)
+import Cpf.Validador (calcularDigitos, limparCpf)
 
 main :: IO ()
 main = do
-  let exemplos =
-        [ "52998224725"
-        , "529.982.247-25"
-        , "111.111.111-11"
-        , "abc529def982ghi247jk25"
-        ]
-  mapM_ mostrar exemplos
-  where
-    mostrar cpf = do
-      let digitos = limparCpf cpf
-      putStrLn cpf
-      print digitos
-      print (length digitos)
+  let digitos = limparCpf "529.982.247-25"
+      base9 = take 9 digitos
+      (d1, d2) = calcularDigitos base9
+  print digitos
+  print (d1, d2)
+  print (drop 9 digitos)
