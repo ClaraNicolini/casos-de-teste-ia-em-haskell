@@ -1,13 +1,13 @@
-# Versão 3
+# Versão 4
 
 ## O que é esta versão
-Adiciona `todosIguais` ao modelo, para detectar CPFs com todos os dígitos repetidos.
+Monta no `Main` a checagem completa de validade, ainda sem `validarCpf` na biblioteca.
 
 ## O que mudou em relação à anterior
-- **v2** tinha `limparCpf` e `calcularDigitos`.
-- **v3** exporta `todosIguais` e o `Main` só demonstra essa regra.
+- **v3** só demonstrava `todosIguais`.
+- **v4** combina no `Main`: tamanho 11, não todos iguais e dígitos verificadores corretos.
 
 ## Nome do commit
 ```
-feat(cpf): add todosIguais helper for repeated-digit CPFs
+feat(cpf): wire full CPF checks manually in Main
 ```
