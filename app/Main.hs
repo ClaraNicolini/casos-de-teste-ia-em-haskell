@@ -1,20 +1,12 @@
 module Main where
 
-import Cpf.Validador (calcularDigitos, limparCpf, todosIguais)
+import Cpf.Validador (validarCpf)
 
 main :: IO ()
-main = mapM_ checar
+main = mapM_ (print . validarCpf)
   [ "52998224725"
+  , "529.982.247-25"
   , "11111111111"
   , "52998224726"
+  , "123"
   ]
-  where
-    checar cpf = do
-      let digitos = limparCpf cpf
-          (d1, d2) = calcularDigitos (take 9 digitos)
-          ok =
-            length digitos == 11
-              && not (todosIguais digitos)
-              && drop 9 digitos == [d1, d2]
-      putStrLn cpf
-      print ok

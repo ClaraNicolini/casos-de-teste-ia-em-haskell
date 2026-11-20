@@ -1,13 +1,13 @@
-# Versão 4
+## Versão 5
 
 ## O que é esta versão
-Monta no `Main` a checagem completa de validade, ainda sem `validarCpf` na biblioteca.
+Fecha o modelo: `validarCpf` vira a interface pública do módulo.
 
 ## O que mudou em relação à anterior
-- **v3** só demonstrava `todosIguais`.
-- **v4** combina no `Main`: tamanho 11, não todos iguais e dígitos verificadores corretos.
+- **v4** fazia a checagem só no `Main`.
+- **v5** move a lógica para `validarCpf` em `Cpf.Validador`.
+- Remove `Gen.Algoritmo` desta etapa (AG começa na v6).
 
 ## Nome do commit
 ```
-feat(cpf): wire full CPF checks manually in Main
 ```
