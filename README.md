@@ -1,14 +1,13 @@
-# Versão 2
+# Versão 3
 
 ## O que é esta versão
-Adiciona `calcularDigitos` ao modelo: calcula os dois dígitos verificadores do CPF pela regra do módulo 11.
+Adiciona `todosIguais` ao modelo, para detectar CPFs com todos os dígitos repetidos.
 
 ## O que mudou em relação à anterior
-- **v1** tinha só `limparCpf`.
-- **v2** exporta também `calcularDigitos`.
-- O `Main` passa a mostrar os dígitos calculados e comparar com os da entrada.
+- **v2** tinha `limparCpf` e `calcularDigitos`.
+- **v3** exporta `todosIguais` e o `Main` só demonstra essa regra.
 
 ## Nome do commit
 ```
-feat(cpf): add calcularDigitos using modulo-11 check digits
+feat(cpf): add todosIguais helper for repeated-digit CPFs
 ```
