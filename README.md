@@ -1,2 +1,10 @@
-# casos-de-teste-ia-em-haskell
-O presente trabalho faz parte do tema “IA para geração de casos de teste em Haskell” e, portanto, tem o objetivo de criar um  modelo que receberá entradas geradas por uma técnica de IA e uma suíte de teste para avaliar seu desempenho. 
+# Versão 1
+
+## O que é esta versão
+Primeira versão do projeto: estrutura Cabal (library + executable) e a função `limparCpf` no módulo `Cpf.Validador`. O `Main` demonstra a normalização com vários formatos de entrada.
+
+## Nome do commit
+```
+feat(cpf): add Cabal scaffold and limparCpf normalization
+```
+
