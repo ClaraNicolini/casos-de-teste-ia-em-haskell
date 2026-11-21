@@ -1,15 +1,13 @@
 module Main where
 
-import Gen.Algoritmo (fitness)
+import Cpf.Validador (validarCpf)
+import Gen.Algoritmo (fitness, gerarIndividuo)
+import System.Random (newStdGen)
 
 main :: IO ()
-main = mapM_ mostrar
-  [ "52998224725"
-  , "11111111111"
-  , "52998224726"
-  , "123"
-  ]
-  where
-    mostrar cpf = do
-      putStrLn cpf
-      print (fitness cpf)
+main = do
+  gen <- newStdGen
+  let (individuo, _) = gerarIndividuo gen
+  putStrLn individuo
+  print (fitness individuo)
+  print (validarCpf individuo)

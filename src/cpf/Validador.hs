@@ -2,6 +2,7 @@ module Cpf.Validador
   ( limparCpf
   , calcularDigitos
   , todosIguais
+  , validarCpf
   ) where
 
 import Data.Char (digitToInt, isDigit)
@@ -20,3 +21,12 @@ calcularDigitos base9 = (d1, d2)
 
 todosIguais :: [Int] -> Bool
 todosIguais xs = all (== head xs) xs
+
+validarCpf :: String -> Bool
+validarCpf entrada =
+  length digitos == 11
+    && not (todosIguais digitos)
+    && take 9 digitos ++ [d1, d2] == digitos
+  where
+    digitos = limparCpf entrada
+    (d1, d2) = calcularDigitos (take 9 digitos)
