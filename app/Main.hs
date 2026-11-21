@@ -1,12 +1,15 @@
 module Main where
 
-import Cpf.Validador (validarCpf)
+import Gen.Algoritmo (fitness)
 
 main :: IO ()
-main = mapM_ (print . validarCpf)
+main = mapM_ mostrar
   [ "52998224725"
-  , "529.982.247-25"
   , "11111111111"
   , "52998224726"
   , "123"
   ]
+  where
+    mostrar cpf = do
+      putStrLn cpf
+      print (fitness cpf)
