@@ -12,6 +12,7 @@ library
                     , Gen.Algoritmo
     hs-source-dirs:   src
     build-depends:    base ^>=4.20.2.0
+                    , random
     default-language: Haskell2010
 
 executable projeto-haskell
@@ -19,4 +20,5 @@ executable projeto-haskell
     hs-source-dirs:   app
     build-depends:    base ^>=4.20.2.0
                     , projeto-haskell
+                    , random
     default-language: Haskell2010
