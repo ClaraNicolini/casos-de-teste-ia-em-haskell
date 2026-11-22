@@ -1,2 +1,7 @@
-dist-newstyle
+# Geral
 notas.md
+
+# Compilação do Haskel (Cabal/ghcrun)
+dist-newstyle
+*.o
+*.hi

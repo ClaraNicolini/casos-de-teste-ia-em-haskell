@@ -2,11 +2,22 @@ module Main where
 
 import Cpf.Validador (validarCpf)
 import Gen.Algoritmo (evoluirVarios, fitness)
-import System.Random (newStdGen)
+import System.Environment (getArgs)
+import System.Random (mkStdGen, randomIO)
+import Text.Read (readMaybe)
+
+obterSeed :: IO Int
+obterSeed = do
+  args <- getArgs
+  case args of
+    (s : _) | Just n <- readMaybe s -> return n
+    _ -> randomIO
 
 main :: IO ()
 main = do
-  gen <- newStdGen
+  seed <- obterSeed
+  let gen = mkStdGen seed
+  putStrLn $ "Seed: " ++ show seed
   let (validos, todos, _) = evoluirVarios 10 gen
   putStrLn "=== Casos gerados pelo AG ==="
   mapM_ mostrarTodos (zip [1 :: Int ..] todos)
