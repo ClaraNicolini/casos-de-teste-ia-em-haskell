@@ -1,14 +1,14 @@
-# Versão 10.1
+# Versão 10.2
 
 ## O que é esta versão
-Versao aprimorada da anterior com escolha de seed para testes reprodutíveis e correções de documentação
+Versao aprimorada da anterior com escolha de seed e quantidade de valores gerados
 
 ## O que mudou em relação à anterior
-- **v10** sem reprodutibilidade (seed fixa) para testes com o run
+- **v10** sem reprodutibilidade (seed fixa) e sem escolha de quantidade para testes com o run
 
 ## Nome do commit
 ```
-test(cpf): Adição de testes de propriedaded com QuickCheck e casos de CPF formatados
+feat(param): adição de parâmetros para seed e qte (data Param)
 ```
 
 ## Como rodar o Projeto
@@ -24,7 +24,7 @@ Pelo Cabal:
 cabal run
 ```
 
-Printa também a seed utilizada para reprodutibilidade.
+Printa também a seed utilizada para reprodutibilidade
 
 Ou com seed:
 

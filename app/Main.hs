@@ -6,24 +6,34 @@ import System.Environment (getArgs)
 import System.Random (mkStdGen, randomIO)
 import Text.Read (readMaybe)
 
-obterSeed :: IO Int
-obterSeed = do
+data Param = Param { paramSeed :: Int, paramQte :: Int}
+
+qtePadrao :: Int
+qtePadrao = 10
+
+-- para o IO "data Maybe a = Nothing | Just a"
+obterParam :: IO Param -- Podia ser tupla (Int, Int) tambem
+obterParam = do
   args <- getArgs
-  case args of
-    (s : _) | Just n <- readMaybe s -> return n
-    _ -> randomIO
+  seed <- case args of -- Expr. IO Int aqui dai sep.
+        (s : _) | Just n <- readMaybe s -> return n -- if readMaybe(q) == Just n && n > 0 then n else ...
+        _ -> randomIO
+  let qte = case args of
+        (_ : q : _) | Just n <- readMaybe q, n > 0 -> n
+        _ -> qtePadrao
+  return (Param seed qte)
 
 main :: IO ()
 main = do
-  seed <- obterSeed
+  Param seed qte <- obterParam
   let gen = mkStdGen seed
-  putStrLn $ "Seed: " ++ show seed
-  let (validos, todos, _) = evoluirVarios 10 gen
+  let (validos, todos, _) = evoluirVarios qte gen
   putStrLn "=== Casos gerados pelo AG ==="
   mapM_ mostrarTodos (zip [1 :: Int ..] todos)
   putStrLn ""
   putStrLn "=== Filtrados pelo modelo (validos) ==="
   mapM_ mostrarValido (zip [1 :: Int ..] validos)
+  putStrLn $ "Seed: " ++ show seed ++ " | Quantidade: " ++ show qte 
   where
     mostrarTodos (i, cpf) =
       putStrLn $
